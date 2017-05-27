@@ -1,0 +1,16 @@
+PODS:
+  - YFPageView (0.1.0)
+
+DEPENDENCIES:
+  - YFPageView (from `../`)
+
+EXTERNAL SOURCES:
+  YFPageView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  YFPageView: 060de485ce86d2138b6598ab038e7ba64f9ef764
+
+PODFILE CHECKSUM: da0f47338f209c12a1c41adf1872490a16e91b53
+
+COCOAPODS: 1.2.1

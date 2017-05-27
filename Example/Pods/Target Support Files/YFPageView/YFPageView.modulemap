@@ -1,0 +1,6 @@
+framework module YFPageView {
+  umbrella header "YFPageView-umbrella.h"
+
+  export *
+  module * { export * }
+}

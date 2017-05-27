@@ -1,0 +1,22 @@
+{
+  "name": "YFPageView",
+  "version": "0.1.0",
+  "summary": "A short description of YFPageView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/13818556154@163.com/YFPageView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "13818556154@163.com": "13818556154@163.com"
+  },
+  "source": {
+    "git": "https://github.com/13818556154@163.com/YFPageView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "YFPageView/Classes/**/*"
+}

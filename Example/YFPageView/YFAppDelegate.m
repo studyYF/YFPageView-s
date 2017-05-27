@@ -7,6 +7,7 @@
 //
 
 #import "YFAppDelegate.h"
+#import "YFPageViewController.h"
 
 @implementation YFAppDelegate
 
