@@ -48,7 +48,6 @@
  */
 - (instancetype)initWithFrame:(CGRect)frame titleArray:(NSArray *)titleArray;
 
-
 /**
  *  移动当前的选中title
  *
