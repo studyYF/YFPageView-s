@@ -6,10 +6,6 @@
 //  Copyright © 2016年 YF. All rights reserved.
 //
 
-#define yfWidth [UIScreen mainScreen].bounds.size.width
-
-#define yfHeight [UIScreen mainScreen].bounds.size.height
-
 #import <UIKit/UIKit.h>
 
 @interface UIView (Size)

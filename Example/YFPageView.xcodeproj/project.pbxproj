@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		10789802C90CDDFC04693274 /* Pods_YFPageView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YFPageView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4012D60299197996115491B7 /* Pods-YFPageView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YFPageView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YFPageView_Tests/Pods-YFPageView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		5D75217879E405625AFA9C73 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5D75217879E405625AFA9C73 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YFPageView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YFPageView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,10 +63,10 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8323A3F4C0EEA32C517F0BB3 /* Pods_YFPageView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YFPageView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9AC75DF9F6970C5953DBB224 /* YFPageView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = YFPageView.podspec; path = ../YFPageView.podspec; sourceTree = "<group>"; };
+		9AC75DF9F6970C5953DBB224 /* YFPageView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YFPageView.podspec; path = ../YFPageView.podspec; sourceTree = "<group>"; };
 		B91F1F3178C5B56DBB53BAA7 /* Pods-YFPageView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YFPageView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YFPageView_Tests/Pods-YFPageView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D1AA298D9F891C1B87799237 /* Pods-YFPageView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YFPageView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YFPageView_Example/Pods-YFPageView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		F76E676977A5D08948E0CD30 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F76E676977A5D08948E0CD30 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -527,6 +527,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YFPageView/YFPageView-Prefix.pch";
 				INFOPLIST_FILE = "YFPageView/YFPageView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -542,6 +543,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YFPageView/YFPageView-Prefix.pch";
 				INFOPLIST_FILE = "YFPageView/YFPageView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

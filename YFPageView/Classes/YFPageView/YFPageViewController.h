@@ -7,33 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HeaderTitleView.h"
+#import "YFSegmentView.h"
 
 @interface YFPageViewController : UIViewController
 /**
  *  分类标题视图
  */
-@property (nonatomic, strong) HeaderTitleView * headTitleView;
-/**控制器数组 */
-@property (nonatomic, strong) NSMutableArray  * vcArray;
-/**分类标题数组 */
-@property (nonatomic, strong) NSArray  * titleArray;
-/**标题按钮普通颜色*/
-@property (nonatomic, strong) UIColor * titleButtonColorNormal;
-/**标题按钮选中颜色*/
-@property (nonatomic, strong) UIColor * titleButtonColorSeletced;
-/**按钮下的滑动条颜色*/
-@property (nonatomic, strong) UIColor * lineColor;
-/**标题view背景色 */
-@property (nonatomic, strong) UIColor * titleViewBackgroundColor;
-/**标题按钮字体大小 */
-@property (nonatomic, assign) UIFont* buttonfont;
-/**标题高度 */
-@property (nonatomic, assign) CGFloat headerTitleHeight;
+@property (nonatomic, strong) YFSegmentView * segmentView;
+
 /**
- *  开始布局
+ 控制器是否滚动切换，默认是YES
  */
-- (void)startLayout;
+@property (nonatomic, assign) BOOL isNeedScroll;
+
 /**
  *  移动当前显示的控制器
  *
@@ -41,5 +27,13 @@
  *  @param direction 方向,左滑,右滑
  */
 - (void)seletcedTitle:(NSInteger)index direction:(UIPageViewControllerNavigationDirection)direction;
+
+/**
+ 设置控制器和标题
+
+ @param titles 标题名
+ @param vcs 控制器
+ */
+- (void)setContentWithTitles:(NSArray *)titles vcs:(NSMutableArray *)vcs;
 
 @end

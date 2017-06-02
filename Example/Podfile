@@ -2,10 +2,10 @@ use_frameworks!
 
 target 'YFPageView_Example' do
   pod 'YFPageView', :path => '../'
-  
+  pod 'YFBase/Frame'
   target 'YFPageView_Tests' do
     inherit! :search_paths
-
+    
     
   end
 end

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YFPageView'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'YFPageView.'
 
 # This description is used to generate tags and improve search results.
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = 'A short description of YFPageView,初始创建项目.'
+  s.description      = '类似于今日头条的顶部滑动控件'
   s.homepage         = 'https://github.com/studyYF/YFPageView-s'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -35,5 +35,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'YFBase/Frame'
 end

@@ -6,13 +6,13 @@
 //  Copyright © 2016年 YF. All rights reserved.
 //
 
-#define RandomColor [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1]
+
 
 #import "YFPageViewController.h"
 #import "UIView+Size.h"
 
 
-@interface YFPageViewController ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate,HeaderTitleViewDelegate>
+@interface YFPageViewController ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate,YFSegmentViewDelegate>
 /**
  *  pageViewController保存控制器的容器
  */
@@ -23,6 +23,9 @@
  */
 @property (nonatomic, strong) UIViewController * pendingViewController;
 
+/**控制器数组 */
+@property (nonatomic, strong) NSMutableArray  * vcArray;
+
 
 @end
 
@@ -30,28 +33,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    //设置默认的属性值
-    _headerTitleHeight = 40;
-    _titleButtonColorSeletced = [UIColor redColor];
-    _lineColor = [UIColor redColor];
-    _titleViewBackgroundColor = [UIColor whiteColor];
-    _titleButtonColorNormal = [UIColor lightGrayColor];
-    _buttonfont = [UIFont systemFontOfSize:15];
+}
 
+- (BOOL)isNeedScroll {
+    if (!_isNeedScroll) {
+        _isNeedScroll = YES;
+    }
+    return _isNeedScroll;
+}
+
+- (void)setContentWithTitles:(NSArray *)titles vcs:(NSMutableArray *)vcs
+{
+    self.segmentView.titleArray = titles;
+    self.vcArray = vcs;
+    [self.segmentView moveSeletcedButton:0];
+    [self startLayout];
 }
 
 //根据设置的titleView的样式创建控件
 - (void)startLayout
 {
-    self.pageViewController.view.frame = CGRectMake(0, 64 + self.headTitleView.yf_height, yfWidth, self.view.yf_height - self.headTitleView.yf_height);
+    self.pageViewController.view.frame = CGRectMake(0, self.segmentView.yf_height, yfWidth, self.view.yf_height - self.segmentView.yf_height);
 }
 
 #pragma mark -- HeaderTitleViewDelegate
 - (void)seletcedTitle:(NSInteger)index direction:(UIPageViewControllerNavigationDirection)direction
 {
-    //如果不需要一直左右滑动,可以在这里修改direction参数
-    [self.pageViewController setViewControllers:@[self.vcArray[index]] direction:direction animated:YES completion:nil];
+    //
+    [self.pageViewController setViewControllers:@[self.vcArray[index]] direction:direction animated:_isNeedScroll completion:nil];
 }
 
 #pragma mark -- UIPageViewControllerDataSource
@@ -88,57 +99,40 @@
 {
     //previousViewControllers 该数组里面存放的是滑动之前的viewController
     if (completed) {
-        [self.headTitleView moveSeletcedButton:[self.vcArray indexOfObject:self.pendingViewController]];
+        [self.segmentView moveSeletcedButton:[self.vcArray indexOfObject:self.pendingViewController]];
     }
 }
 #pragma mark -- 懒加载
 - (UIPageViewController *)pageViewController{
     if (!_pageViewController) {
-        _pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:@{UIPageViewControllerOptionSpineLocationKey : @0}];
-        _pageViewController.delegate = self;
-        _pageViewController.dataSource = self;
-        [_pageViewController setViewControllers:@[self.vcArray[0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+        UIPageViewController * pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:@{UIPageViewControllerOptionSpineLocationKey : @0}];
+        pageViewController.delegate = self;
+        pageViewController.dataSource = self;
+        [pageViewController setViewControllers:@[self.vcArray[0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+        _pageViewController = pageViewController;
         [self addChildViewController:_pageViewController];
         [self.view addSubview:_pageViewController.view];
     }
     return _pageViewController;
 }
 
-- (NSMutableArray *)vcArray
-{
-    if (!_vcArray) {
-        _vcArray = [[NSMutableArray alloc] init];
-        for (int i = 0; i < self.titleArray.count; i ++) {
-            UIViewController * VC= [[UIViewController alloc] init];
-            VC.view.backgroundColor = RandomColor;
-            [_vcArray addObject:VC];
-        }
-    }
-    return _vcArray;
-}
 
 
-- (NSArray *)titleArray
-{
-    if (!_titleArray) {
-        _titleArray = [[NSArray alloc] init];
-        _titleArray = @[@"这是默认",@"的标题",@"需要自己设置"];
-    }
-    return  _titleArray;
-}
 
-- (UIView *)headTitleView
+
+- (UIView *)segmentView
 {
-    if (!_headTitleView) {
-        _headTitleView = [[HeaderTitleView alloc] initWithFrame:CGRectMake(0, 64, yfWidth, self.headerTitleHeight) titleArray:self.titleArray];
-        _headTitleView.delegate = self;
-        _headTitleView.titleButtonColorNormal = self.titleButtonColorNormal;
-        _headTitleView.titleButtonColorSeletced = self.titleButtonColorSeletced;
-        _headTitleView.lineColor = self.lineColor;
-        _headTitleView.buttonfont = self.buttonfont;
-        [self.view addSubview:_headTitleView];
+    if (!_segmentView) {
+        YFSegmentView * segmentView = [[YFSegmentView alloc] initWithFrame:CGRectZero];
+        segmentView.delegate = self;
+//        segmentView.titleButtonColorNormal = self.titleButtonColorNormal;
+//        segmentView.titleButtonColorSeletced = self.titleButtonColorSeletced;
+//        segmentView.lineColor = self.lineColor;
+//        segmentView.buttonfont = self.buttonfont;
+        _segmentView = segmentView;
+        [self.view addSubview:_segmentView];
     }
-    return _headTitleView;
+    return _segmentView;
 }
 
 

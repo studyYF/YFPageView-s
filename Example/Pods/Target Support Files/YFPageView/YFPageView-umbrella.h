@@ -10,9 +10,9 @@
 #endif
 #endif
 
-#import "HeaderTitleView.h"
-#import "UIView+Size.h"
 #import "YFPageViewController.h"
+#import "YFSegmentView.h"
+#import "YFSegmentViewConfig.h"
 
 FOUNDATION_EXPORT double YFPageViewVersionNumber;
 FOUNDATION_EXPORT const unsigned char YFPageViewVersionString[];

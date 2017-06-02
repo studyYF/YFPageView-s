@@ -1,7 +1,10 @@
 PODS:
-  - YFPageView (0.1.0)
+  - YFBase/Frame (0.1.0)
+  - YFPageView (0.2.0):
+    - YFBase/Frame
 
 DEPENDENCIES:
+  - YFBase/Frame
   - YFPageView (from `../`)
 
 EXTERNAL SOURCES:
@@ -9,8 +12,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YFPageView: 060de485ce86d2138b6598ab038e7ba64f9ef764
+  YFBase: 9d945347f3d6ef4001f6ddca77fdffc10f8104fd
+  YFPageView: 7c9ec428725d2681164471fe9c1f0915e0f3c645
 
-PODFILE CHECKSUM: da0f47338f209c12a1c41adf1872490a16e91b53
+PODFILE CHECKSUM: 83d595db02c86c54ee1f538640c4fcc4ade4a6e7
 
 COCOAPODS: 1.2.1
